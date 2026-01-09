@@ -26,7 +26,7 @@ Together, these approaches show both **theoretical logic** and **real-world appl
 
 ### Tech Stack
 - **Programming Language:** Python
-- **Libraries:** OpenCV, NumPy, Pygame
+- **Libraries:** OpenCV, NumPy, Pygame, Ultralytics (YOLO)
 - **Input Sources:** Images, recorded CCTV footage, live video streams
 
 ---
@@ -34,17 +34,22 @@ Together, these approaches show both **theoretical logic** and **real-world appl
 ## 🏗️ Project Structure
 
 ```
-smart-traffic-light-system/
+smart-traffic-lights/
 │
 ├── src/
 │ ├── simulation.py        # Traffic signal simulator using traffic formulas
-│ └── vehicle_detection.py # Real-time vehicle detection from video/CCTV
+│ ├── vehicle_detection.py # Real-time vehicle detection from video/CCTV
+│ ├── sort.py              # SORT algorithm for object tracking
+│ └── Mask.png             # Region mask for detection
 │
 ├── data/
 │ ├── images/              # Sample images for testing
 │ └── videos/              # CCTV or traffic footage samples
 │
-├── requirements.txt
+├── models/
+│ └── yolov8n.pt           # Pre-trained YOLOv8 weights
+│
+├── Detection/             # (Optional) Original backup/development folder
 └── README.md
 ```
 
@@ -69,8 +74,9 @@ smart-traffic-light-system/
 ## 🚀 How to Run
 
 ### Step 1: Install Dependencies
+Ensure you have the required libraries installed.
 ```bash
-pip install -r requirements.txt
+pip install opencv-python numpy pygame ultralytics cvzone filterpy
 ```
 
 ### Step 2: Run Traffic Simulation
@@ -82,6 +88,7 @@ python src/simulation.py
 ```bash
 python src/vehicle_detection.py
 ```
+*Note: Ensure the video path in `vehicle_detection.py` points to `data/videos/cars.mp4` or your custom video.*
 
 ## 📊 Key Observations
 - Density-based signal timing can significantly reduce idle waiting time.

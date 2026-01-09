@@ -5,9 +5,9 @@ import cvzone
 import math
 from sort import *
 
-cap = cv2.VideoCapture("../data/videos/cars.mp4")  # For Video
+cap = cv2.VideoCapture("data/videos/cars.mp4")  # For Video
 
-model = YOLO("../models/yolov8n.pt")
+model = YOLO("models/yolov8n.pt")
 
 classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
               "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
@@ -21,7 +21,7 @@ classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "trai
               "teddy bear", "hair drier", "toothbrush"
               ]
 
-mask = cv2.imread("mask.png")
+mask = cv2.imread("src/Mask.png")
 
 # Tracking
 tracker = Sort(max_age=20, min_hits=3, iou_threshold=0.3)
