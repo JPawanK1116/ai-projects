@@ -1,0 +1,6 @@
+tensorflow
+keras
+pyqt5
+SpeechRecognition
+pyttsx3
+numpy
